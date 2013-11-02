@@ -23,18 +23,18 @@ class Main extends REST_Controller
 		$result = file_get_contents('http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/GB/GBP/en-GB/UK/anywhere/anytime/anytime?apiKey=hck11771716567529700800748989040');
 
 		$result = json_decode($result, true);
-		unset('')
-		foreach($result as $key => $value)
-		{
-			foreach($value as $key1 => $value1)
-			{
-				if(isset($value1['QuoteId']))
-				{
+		unset($result['Quotes']);
+		unset($result['Currencies']);
+		unset($result['Carriers']);
 
-				}
-					
-			}
+		$place_id = array[];
+
+		for($i=0; $i<count($result); $i++)
+		{
+			$place_id = $result['PlaceId'];
 		}
+
+		print_r($place_id);
 		
 	}
 
